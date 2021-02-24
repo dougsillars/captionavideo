@@ -1,0 +1,564 @@
+﻿WEBVTT
+
+1
+00:00:00.240 --> 00:00:03.060
+One of the most popular features
+in social media applications like
+
+2
+00:00:03.260 --> 00:00:05.940
+Snapchat and Instagram is the stories
+feature.
+
+3
+00:00:06.300 --> 00:00:09.300
+And the cool thing about the stories
+feature is that the content that
+
+4
+00:00:09.500 --> 00:00:12.180
+you create there is present for
+a certain amount of time,
+
+5
+00:00:12.380 --> 00:00:15.030
+usually like 24 hours,
+and then it disappears immediately,
+
+6
+00:00:15.300 --> 00:00:16.340
+never to be seen again.
+
+7
+00:00:17.190 --> 00:00:20.640
+So I want to show you how you can
+build a similar feature like stories
+
+8
+00:00:20.840 --> 00:00:24.690
+using API video and to give you
+a demonstration of how that works.
+
+9
+00:00:24.890 --> 00:00:27.750
+I built the simple application,
+which you can see here on my screen.
+
+10
+00:00:29.070 --> 00:00:31.980
+There are three different sets of
+videos that I want to be able to
+
+11
+00:00:32.180 --> 00:00:33.270
+create stories out of.
+
+12
+00:00:33.470 --> 00:00:36.030
+One of them is a live stream of a park,
+and that's from a camera that's
+
+13
+00:00:36.230 --> 00:00:38.790
+like right over here in the corner
+facing the park across the street.
+
+14
+00:00:38.990 --> 00:00:40.860
+And there's a new video recorded
+every hour.
+
+15
+00:00:41.430 --> 00:00:44.970
+And so I know that there's videos
+that are less than 24 hours old.
+
+16
+00:00:45.170 --> 00:00:49.530
+They're the second example is live
+stream of video.
+
+17
+00:00:49.730 --> 00:00:52.530
+People use that all the time to
+test out how to do a live stream
+
+18
+00:00:52.730 --> 00:00:54.330
+in the browser and the recordings there.
+
+19
+00:00:54.530 --> 00:00:55.620
+So I know they're going to be videos.
+
+20
+00:00:55.820 --> 00:00:57.390
+They're they're from the last 24 hours.
+
+21
+00:00:57.780 --> 00:01:03.000
+And then the other one is the tutorials
+like this one for all of the examples
+
+22
+00:01:03.200 --> 00:01:04.200
+at a video.
+
+23
+00:01:04.400 --> 00:01:09.630
+Now, I know while I'm recording this,
+there are no videos actually that
+
+24
+00:01:09.830 --> 00:01:12.210
+will fit the parameters of being
+in the last 24 hours.
+
+25
+00:01:12.410 --> 00:01:14.990
+So when we'd run that one,
+we should find that those stories.
+
+26
+00:01:15.190 --> 00:01:18.800
+OK, so I'm going to run what I'm
+going to do the live stream of a park.
+
+27
+00:01:19.000 --> 00:01:21.690
+I'll hit submit and then we'll walk
+through what's going on here.
+
+28
+00:01:21.890 --> 00:01:27.130
+OK, so we can see here is that there
+are 10 stories from the last 24
+
+29
+00:01:27.330 --> 00:01:30.130
+hours and as you can see,
+different views of the park at different
+
+30
+00:01:30.330 --> 00:01:31.090
+times of the day.
+
+31
+00:01:31.290 --> 00:01:33.330
+It's actually been a pretty sunny
+day today.
+
+32
+00:01:34.300 --> 00:01:36.970
+And then you can see the sun was
+early this morning at seven,
+
+33
+00:01:37.170 --> 00:01:37.930
+25.
+
+34
+00:01:38.740 --> 00:01:40.840
+And then this is the one as the
+sun was setting last night,
+
+35
+00:01:41.040 --> 00:01:43.390
+you can kind of see that orange
+glow from the sun setting.
+
+36
+00:01:44.050 --> 00:01:46.810
+And if and then we can see a couple
+from yesterday.
+
+37
+00:01:47.140 --> 00:01:49.050
+So those are the most recent video.
+
+38
+00:01:49.250 --> 00:01:50.010
+So how did I do that?
+
+39
+00:01:50.210 --> 00:01:53.030
+Well, this is the Doges Council log,
+so let's just walk through that
+
+40
+00:01:53.230 --> 00:01:54.100
+and scroll back up to the top.
+
+41
+00:01:54.670 --> 00:01:58.090
+So what I'm doing is it's like give
+me the videos are less than 24 hours
+
+42
+00:01:58.290 --> 00:01:59.050
+old.
+
+43
+00:02:00.610 --> 00:02:03.940
+We don't have a parameter in API
+that we researched based on time.
+
+44
+00:02:04.150 --> 00:02:08.860
+But what I can do is I can say give
+me sort by published debt and give
+
+45
+00:02:09.060 --> 00:02:12.320
+me the most recent ones so descending
+and give me 25 of them.
+
+46
+00:02:12.910 --> 00:02:17.500
+The assumption here is that they're
+not ever more than 25 videos from
+
+47
+00:02:17.700 --> 00:02:22.740
+the last 24 hours or the time frame
+that you're looking to get stories from.
+
+48
+00:02:22.940 --> 00:02:25.120
+If you need a larger number,
+you can obviously change that in
+
+49
+00:02:25.320 --> 00:02:26.570
+the code that comes up on GitHub.
+
+50
+00:02:28.120 --> 00:02:29.590
+This gives me a list of videos.
+
+51
+00:02:29.790 --> 00:02:34.540
+And so each video has a videoed
+a title and you URLs for each one.
+
+52
+00:02:34.740 --> 00:02:37.180
+And then you can see here when it
+was published.
+
+53
+00:02:38.880 --> 00:02:41.460
+So now that I have an array with
+all of this information,
+
+54
+00:02:41.790 --> 00:02:45.390
+I can send a loop through and say,
+give me the videos where the public
+
+55
+00:02:45.590 --> 00:02:48.060
+debt is been within the last 24 hours.
+
+56
+00:02:48.610 --> 00:02:50.280
+So let's walk through what's happening
+in the code.
+
+57
+00:02:50.820 --> 00:02:57.180
+When I submit the data in the form,
+I can calculate when the last 24
+
+58
+00:02:57.380 --> 00:03:02.700
+hours were so I can take the current
+time and subtract off 24 hours and
+
+59
+00:03:02.900 --> 00:03:04.750
+then I can make a request to API
+that video.
+
+60
+00:03:04.950 --> 00:03:07.910
+And so what I'm asking for is for
+the Leapai live stream.
+
+61
+00:03:08.110 --> 00:03:13.860
+I'm asking for the current page,
+the first page of 25 videos sorted
+
+62
+00:03:14.060 --> 00:03:15.120
+by the newest videos.
+
+63
+00:03:15.360 --> 00:03:18.360
+And then I give the live Edek that's
+going to give me all the videos
+
+64
+00:03:18.560 --> 00:03:19.940
+that are for the live stream.
+
+65
+00:03:20.490 --> 00:03:24.650
+The other options I have is for
+the the live stream of video.
+
+66
+00:03:24.850 --> 00:03:26.310
+Again, I'm sorting on a live stream.
+
+67
+00:03:26.700 --> 00:03:29.520
+And then finally, the last example,
+which I don't have any videos in
+
+68
+00:03:29.720 --> 00:03:30.510
+the last 24 hours.
+
+69
+00:03:30.710 --> 00:03:34.290
+I'm searching, searching for the
+tag where the video is tagged a video.
+
+70
+00:03:35.040 --> 00:03:37.680
+And when I run those searches at API,
+that video.
+
+71
+00:03:37.880 --> 00:03:41.370
+So I run the search with my search
+parameters, client video,
+
+72
+00:03:41.570 --> 00:03:42.330
+search, search parameters.
+
+73
+00:03:42.990 --> 00:03:45.990
+I get a response back with all of
+those videos that we saw on the log.
+
+74
+00:03:46.410 --> 00:03:50.040
+I then can loop through the videos
+and say, hey, if the published date
+
+75
+00:03:50.240 --> 00:03:54.720
+is newer than the earliest time,
+give me the information for that video.
+
+76
+00:03:54.920 --> 00:04:00.060
+And so I get the name of the video,
+the URL for the video in the iFrame
+
+77
+00:04:00.260 --> 00:04:02.490
+format and then also the published date.
+
+78
+00:04:02.790 --> 00:04:05.370
+And then I push that into a an array.
+
+79
+00:04:05.650 --> 00:04:09.000
+I send that array down and that's
+what gets published on the Web page.
+
+80
+00:04:10.200 --> 00:04:15.660
+So we can see here these are the
+25 videos with all the information.
+
+81
+00:04:16.380 --> 00:04:19.560
+And then when I go through the array,
+I find the ones that are published
+
+82
+00:04:19.760 --> 00:04:20.730
+in the last 24 hours.
+
+83
+00:04:20.930 --> 00:04:24.440
+And you can see right now it's three,
+10.
+
+84
+00:04:25.170 --> 00:04:27.300
+And so this one was published at 325.
+
+85
+00:04:27.500 --> 00:04:28.650
+So it fits yesterday.
+
+86
+00:04:28.850 --> 00:04:31.980
+So it's, you know, 23 hours and
+45 minutes.
+
+87
+00:04:32.180 --> 00:04:32.960
+So it's still good.
+
+88
+00:04:33.160 --> 00:04:34.050
+It fits the rules.
+
+89
+00:04:34.350 --> 00:04:37.320
+And then these are the names,
+the EPHRAM'S and the published for
+
+90
+00:04:37.520 --> 00:04:44.250
+all of those which I then send down
+to plug and plug generates those we can.
+
+91
+00:04:44.450 --> 00:04:45.210
+Sure.
+
+92
+00:04:45.410 --> 00:04:49.950
+What that looks like here for each
+video in the valedictories,
+
+93
+00:04:50.150 --> 00:04:54.420
+put out the iFrame, put up the video
+name and then put in the words recorded
+
+94
+00:04:54.620 --> 00:04:55.950
+at with the time.
+
+95
+00:04:56.150 --> 00:05:00.900
+As you can see there's a video live
+stream recorded Wednesday,
+
+96
+00:05:01.100 --> 00:05:03.130
+January 20th at sixteen twenty five.
+
+97
+00:05:03.630 --> 00:05:04.500
+So there we have it.
+
+98
+00:05:04.800 --> 00:05:06.890
+It's a really quick demo.
+
+99
+00:05:07.090 --> 00:05:13.170
+We can just run another another
+time to see how it works for we
+
+100
+00:05:13.370 --> 00:05:15.810
+can do this one and I can guarantee
+there'll be none because I haven't
+
+101
+00:05:16.010 --> 00:05:16.770
+published any.
+
+102
+00:05:16.970 --> 00:05:18.300
+So it just comes up said hey there,
+no news stories.
+
+103
+00:05:19.620 --> 00:05:22.980
+And then four people are using the
+live stream of video demo.
+
+104
+00:05:24.240 --> 00:05:26.490
+We can see how many there were in
+the last 24 hours.
+
+105
+00:05:26.690 --> 00:05:27.780
+And there are 11 of them.
+
+106
+00:05:29.340 --> 00:05:31.770
+And so we can see all of the people,
+if we wanted to watch them,
+
+107
+00:05:31.970 --> 00:05:34.820
+we could watch the people who are
+testing out the live stream video.
+
+108
+00:05:36.060 --> 00:05:42.120
+If I go to 48, if I do 24 hours
+with a live stream of a park there,
+
+109
+00:05:42.320 --> 00:05:43.080
+10.
+
+110
+00:05:46.130 --> 00:05:51.140
+If I do 48 hours, there's 20 Sauveur
+videos that don't fit in there,
+
+111
+00:05:51.340 --> 00:05:54.560
+just don't show up, they don't fit
+into your time range.
+
+112
+00:05:54.760 --> 00:05:56.960
+They don't show up with code like this.
+
+113
+00:05:57.160 --> 00:06:00.800
+You can use API that video to build
+your own social media stories type
+
+114
+00:06:01.000 --> 00:06:03.460
+function like you might find in
+other popular applications.
+
+115
+00:06:03.660 --> 00:06:06.350
+So keep an eye on a video for other
+features.
+
+116
+00:06:06.550 --> 00:06:09.710
+If you have any questions or comments,
+please drop a line in the form it's
+
+117
+00:06:09.910 --> 00:06:12.920
+community API dot video and we'd
+love to help you out.
+
+118
+00:06:13.490 --> 00:06:14.640
+We'd also love to see what you built.
+
+119
+00:06:14.960 --> 00:06:18.290
+So keep an eye to this channel for
+more videos.
+
+120
+00:06:18.490 --> 00:06:19.400
+And thanks for watching.
+
