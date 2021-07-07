@@ -30,14 +30,6 @@ app.get('/', (req, res) => {
 		res.sendFile(path.join(__dirname, '../public', 'index.html'));  
 });
 
-app.get('/test', (req, res) => {
-	client = new apiVideo.Client({ apiKey: "CFWmkvWnbQ67lUOYjtfy1ga8AhNVMrQT7VajUZv0cwZ"});	
-	let result =client.analyticsVideo.get('vi5PrdGS3FdXQplmGF7P2g2Y','2019-W01/2022-W01');
-	console.log(result);
-	result.then(function(video) {
-		console.log(video);
-	});
-});
 
 
 app.post('/createVideo', (req,res) => {
